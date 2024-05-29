@@ -143,7 +143,7 @@ CloudFormation do
   }
   
   Output(:OpenWireEndpoints) { 
-    Value FnIf('IsMultiAZ', FnJoin(',', ["ssl://", Ref(:Broker), "-1", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617", ",", "ssl://", Ref(:Broker), "-2", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617"]), FnJoin(',', ["ssl://", Ref(:Broker), "-1", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617"]))
+    Value FnIf('IsMultiAZ', FnJoin('', ["ssl://", Ref(:Broker), "-1", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617", ",", "ssl://", Ref(:Broker), "-2", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617"]), FnJoin('', ["ssl://", Ref(:Broker), "-1", ".mq.", Ref("AWS::Region"), ".amazonaws.com:61617"]))
     Export FnSub("${EnvironmentName}-#{export}-openwire-endpoints")
   }
 
